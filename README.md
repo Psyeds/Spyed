@@ -4,11 +4,12 @@
 
 A single-file app for **The Public Bridge Corporation** (founder E'drick Brown, Sacramento), built on the same liquid-glass system as District Pulse (`Psyeds/District-UI`): the sky-and-hills wallpaper, glass material with Chromium refraction, sidebar and drawer, floating tab bar, dynamic island, segmented controls, bottom sheets and drag-to-rearrange cards.
 
-- **Programs speed dial** — Causative Actions (12 weeks), Self Control, Youth Diversion Tour. Tapping one opens its detail panel.
+- **Programs speed dial** — Causative Actions (12 weeks, 200+ participants, implemented in CDCR), Self Control, Youth Diversion Program at Folsom State Prison. Tapping one opens its detail panel. The full list adds the City Hall Youth Leadership Tour, Healing Circle and Mentorship.
+- **Mission card** — the mission statement and the five pillars (exposure with purpose, youth and family engagement, youth development, mentorship, structured curriculum).
 - **Trend** (Chart.js) — re-offending rate, youth felony arrest rate, Sacramento teens out of school and work.
 - **Where we work** (MapLibre + OpenFreeMap streets) — The Public Bridge, the Folsom State Prison tour site, and the tour route.
 - **At a glance + facts** — published figures from CA DOJ, CDCR, the Census (via FRED and Kidsdata), PPIC and New Ways to Work. The Sources button lists every figure and its link.
-- **Founder, updates and all programs** — content from thepublicbridge.com.
+- **Founder story, events and TV features** (KCRA 3, ABC10 "Your California Life", Everyday Amazing on Comcast 17) — wording from thepublicbridge.com.
 - **Sign-up** — pick programs ("Add to sign-up" anywhere fills the header badge), pick a role, fill the form.
 - Search (tab bar button or sidebar), light and dark mode, mobile layout.
 

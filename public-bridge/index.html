@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bridge Pulse</title>
-<meta name="description" content="Bridge Pulse by The Public Bridge Corporation: E'drick Brown's youth prevention programs in Sacramento, the public data behind them, and a sign-up for Causative Actions, Self Control and the Youth Diversion Tour.">
+<meta name="description" content="Bridge Pulse by The Public Bridge Corporation: E'drick Brown's youth prevention programs in Sacramento, the public data behind them, and a sign-up for Causative Actions, Self Control, the Youth Diversion Program and the City Hall Youth Leadership Tour.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23007AFF'/%3E%3Cpath d='M12 44V22M52 44V22M12 26c8 9 32 9 40 0M10 44h44M24 44v-9M32 44v-8M40 44v-9' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -602,13 +602,15 @@ a.pill{text-decoration:none}
 @media (max-width:700px){#map{aspect-ratio:4/3.4}}
 /* sign-up form */
 .join-grid{display:grid;gap:12px}
+.join-grid>div,.mission-grid>*{min-width:0}
 @media (min-width:1100px){.join-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
 .picks{display:flex;flex-wrap:wrap;gap:8px}
 .pick{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border:0;border-radius:999px;background:var(--fill);color:var(--label);font-size:14px;font-weight:600;cursor:pointer;transition:background .2s,transform .3s cubic-bezier(.3,1.4,.5,1)}
 .pick i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .pick[aria-pressed="true"]{background:color-mix(in srgb,var(--c) 22%,var(--plate));box-shadow:inset 0 0 0 1.5px var(--c)}
 .pick:active{transform:scale(.96)}
-.form{display:grid;gap:10px}
+.form{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.form>*{min-width:0}
 .frow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media (max-width:560px){.frow{grid-template-columns:1fr}}
 .fl{display:block}
@@ -648,6 +650,17 @@ a.pill{text-decoration:none}
 .s-pad .muted{font-size:13px}
 .s-facts{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
 .widget .minibars{height:30px;max-width:180px}
+.mission{margin-bottom:12px}
+.mission .card-head h2{font-size:24px}
+.mission-grid{display:grid;gap:12px}
+@media (min-width:1100px){.mission-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+.mission .dp-find{align-content:start}
+.mission .dp-find h3{font-size:20px;line-height:1.3}
+.kv-row.pil b{display:flex;align-items:center;gap:10px}
+.kv-row.pil .s-ico{width:28px;height:28px;border-radius:8px;flex:none}
+.kv-row.pil p{padding-left:38px}
+.titles p+p.by{margin-top:6px}
+a.capsule:hover,button.capsule[data-go]:hover{filter:brightness(1.05)}
 .chart-box.short{height:230px}
 @media (min-width:700px){.chart-box.short{height:260px}}
 </style>
@@ -705,11 +718,13 @@ a.pill{text-decoration:none}
     </div>
     <div class="titles">
       <h1>Bridge Pulse</h1>
-      <p>The Public Bridge Corporation, Sacramento</p>
+      <p>Building bridges. Transforming futures.</p>
+      <p class="by">The Public Bridge Corporation · Founder <b>E'drick Brown</b></p>
     </div>
     <div class="hdr-meta">
-      <span class="capsule glass clear"><span class="live-dot" aria-hidden="true"></span>Founder <b>E'drick Brown</b></span>
-      <span class="capsule glass clear"><b>3</b> youth programs</span>
+      <span class="capsule glass clear"><span class="live-dot" aria-hidden="true"></span><b>501(c)(3)</b> nonprofit · Sacramento</span>
+      <a class="capsule glass clear" href="https://thepublicbridge.com/" target="_blank" rel="noopener" style="text-decoration:none;color:var(--label);font-weight:600"><span data-i="heart" data-s="15" style="color:var(--red)"></span>Support the mission</a>
+      <button class="capsule glass clear" data-go="sec-join" style="border:0;cursor:pointer;color:var(--label);font-weight:600"><span data-i="hand" data-s="15" style="color:var(--blue)"></span>Join the bridge, volunteer</button>
       <button class="capsule glass demo" data-info="data" style="--tint:color-mix(in srgb,var(--green) 38%,transparent)" aria-label="Published data. See every source.">Published data · CA DOJ, CDCR, Census<span data-i="info" data-s="15"></span></button>
     </div>
   </header>
@@ -749,7 +764,7 @@ a.pill{text-decoration:none}
       </div>
       <div class="legend">
         <span><i style="background:var(--orange)"></i>The Public Bridge</span>
-        <span><i style="background:var(--red)"></i>Youth Diversion Tour</span>
+        <span><i style="background:var(--red)"></i>Youth Diversion Program</span>
         <span><i style="background:var(--indigo)"></i>State prison</span>
         <span><i class="lring"></i>Tour route (straight line)</span>
       </div>
@@ -763,16 +778,29 @@ a.pill{text-decoration:none}
   <h2 class="group-title facts-title" data-sec="pulse">Sacramento and California <span class="real-chip">Published data</span></h2>
   <section class="facts" id="facts" aria-label="Facts from published data" data-sec="pulse"></section>
 
+  <section class="card glass mission" id="sec-mission" data-sec="programs" aria-labelledby="missionTitle">
+    <div class="card-head"><h2 id="missionTitle">We build the bridge before they need a way back</h2><span class="card-note">The Public Bridge</span></div>
+    <div class="mission-grid">
+      <div class="dp-find">
+        <span class="kick">Every young person has potential</span>
+        <h3>The difference is whether someone reaches them early enough, believes in them strongly enough, and connects them to opportunities that expand what they believe is possible.</h3>
+        <p>The Public Bridge unites youth, families, schools, mentors, community leaders, higher education, public agencies and <b>credible lived experience</b>. Through education, mentorship, accountability, family engagement, leadership development and real-world exposure, young people learn that <b>every decision has a destination</b>, and their future is worth protecting.</p>
+        <div class="dp-act"><div><span>Our mission</span><strong>Bridging social and economic gaps of disparity through community unification, peer mentorship and preventative support programs.</strong></div></div>
+      </div>
+      <div class="kv-list" id="pillars"></div>
+    </div>
+  </section>
+
   <div class="duo even" id="duoStory">
     <section data-widget="sec-founder" class="card glass" id="sec-founder" data-sec="programs" aria-labelledby="founderTitle">
       <button class="grip" data-i="grip" data-s="15" aria-label="Drag to move this card"></button>
-      <div class="card-head"><h2 id="founderTitle">The founder</h2><span class="card-note">From thepublicbridge.com</span></div>
-      <div class="who"><span class="avatar" aria-hidden="true">EB</span><div><b>E'drick Brown</b><p>Founder of The Public Bridge Corporation. Entered California's prison system at 18 and spent more than two decades inside.</p></div></div>
+      <div class="card-head"><h2 id="founderTitle">From a life sentence to a life of purpose</h2></div>
+      <div class="who"><span class="avatar" aria-hidden="true">EB</span><div><b>E'drick Brown</b><p>Founder. Entered California's prison system at 18 and spent more than two decades behind the walls. Today those experiences are the foundation of his purpose.</p></div></div>
       <div class="story" id="story"></div>
     </section>
     <section data-widget="sec-updates" class="card glass" id="sec-updates" data-sec="programs" aria-labelledby="updatesTitle">
       <button class="grip" data-i="grip" data-s="15" aria-label="Drag to move this card"></button>
-      <div class="card-head"><h2 id="updatesTitle">Updates</h2><span class="card-note">From The Public Bridge</span></div>
+      <div class="card-head"><h2 id="updatesTitle">Events and features</h2><span class="card-note">As seen on KCRA 3, ABC10, Comcast 17</span></div>
       <div class="notes" id="notes"></div>
     </section>
   </div>
@@ -780,7 +808,7 @@ a.pill{text-decoration:none}
   <section class="card glass" id="sec-programs" data-sec="programs" aria-labelledby="progTitle">
     <div class="card-head">
       <h2 id="progTitle">All programs</h2>
-      <div class="tier-key"><span><i style="background:var(--orange)"></i>Curriculum</span><span><i style="background:var(--red)"></i>Experience</span><span><i style="background:var(--green)"></i>Community</span></div>
+      <div class="tier-key"><span><i style="background:var(--orange)"></i>Curriculum</span><span><i style="background:var(--red)"></i>Exposure</span><span><i style="background:var(--green)"></i>Community</span></div>
     </div>
     <div class="list" id="programs"></div>
   </section>
@@ -791,9 +819,10 @@ a.pill{text-decoration:none}
       <div>
         <div class="steps">
           <div class="stp"><span class="n">1</span><div><b>Pick your programs</b><p>Tap any program to add it. Not sure? Leave it blank and we'll help you choose.</p></div></div>
-          <div class="stp"><span class="n">2</span><div><b>Tell us who you are</b><p>Youth, parent or guardian, school or agency, or volunteer.</p></div></div>
+          <div class="stp"><span class="n">2</span><div><b>Tell us who you are</b><p>Youth, parent or guardian, school or agency, volunteer, or partner.</p></div></div>
           <div class="stp"><span class="n">3</span><div><b>We reach out</b><p>The Public Bridge team follows up to talk through goals, schedule and guardian consent.</p></div></div>
         </div>
+        <div class="dp-find" style="margin-top:12px"><span class="kick">It takes all of us</span><p>We cannot do this on our own. It is going to take all of us to join hands and bridge these gaps for the future generations to live in prosperity.</p><div class="dp-act" style="border:0;padding-top:0"><a class="pill prominent" href="https://thepublicbridge.com/" target="_blank" rel="noopener"><span data-i="heart" data-s="16"></span>Donate</a></div></div>
         <div class="contact-tiles">
           <a class="ct" href="tel:+19166029667"><span class="s-ico" style="--c:var(--green)"><span data-i="phone" data-s="17"></span></span><div><b>(916) 602-9667</b><span class="ct-m">Call or text</span></div></a>
           <a class="ct" href="mailto:Info@thepublicbridge.com"><span class="s-ico" style="--c:var(--blue)"><span data-i="mail" data-s="17"></span></span><div><b>Email us</b><span class="ct-m">Info@thepublicbridge.com</span></div></a>
@@ -804,7 +833,7 @@ a.pill{text-decoration:none}
         <form class="form" id="form" novalidate>
           <div><span class="sub-h" style="display:block">I'm interested in</span><div class="picks" id="formPicks"></div></div>
           <div><span class="sub-h" style="display:block">I am a</span>
-            <div class="seg" id="roleSeg" role="radiogroup" aria-label="I am a"><span class="seg-thumb" aria-hidden="true"></span><button type="button" data-v="Youth">Youth</button><button type="button" data-v="Parent / guardian">Parent</button><button type="button" data-v="School / agency">School / agency</button><button type="button" data-v="Volunteer">Volunteer</button></div>
+            <div class="seg" id="roleSeg" role="radiogroup" aria-label="I am a"><span class="seg-thumb" aria-hidden="true"></span><button type="button" data-v="Youth">Youth</button><button type="button" data-v="Parent / guardian">Parent</button><button type="button" data-v="School / agency">School / agency</button><button type="button" data-v="Volunteer">Volunteer</button><button type="button" data-v="Partner / donor">Partner</button></div>
           </div>
           <div class="frow">
             <label class="fl" id="flName"><span>Full name</span><input name="name" autocomplete="name" required><em class="err">Add a name so we know who to ask for.</em></label>
@@ -819,7 +848,8 @@ a.pill{text-decoration:none}
             <label class="fl"><span>City or neighborhood</span><input name="city" placeholder="Sacramento"></label>
             <label class="fl"><span>Best way to reach you</span><select name="pref"><option>Text</option><option>Phone call</option><option>Email</option></select></label>
           </div>
-          <label class="fl"><span>Anything we should know?</span><textarea name="msg" placeholder="Goals, schedule, what's been going on"></textarea></label>
+          <label class="fl"><span>Where did you hear about us?</span><select name="heard"><option value="">Choose one</option><option>KCRA 3</option><option>ABC10 Your California Life</option><option>Everyday Amazing with Sky Alton (Comcast 17)</option><option>A school or teacher</option><option>Probation or a public agency</option><option>Friend or family</option><option>Social media</option><option>Other</option></select></label>
+          <label class="fl"><span>Tell us how you'd like to get involved</span><textarea name="msg" placeholder="Goals, schedule, what's been going on"></textarea></label>
           <label class="consent" id="consentBox"><input type="checkbox" name="consent" id="consent"><span>I agree to be contacted by The Public Bridge. If the participant is under 18, a parent or guardian completes consent before any program or tour.</span></label>
           <div class="form-act">
             <small>Your details go only to The Public Bridge team. Never sold or shared.</small>
@@ -840,8 +870,9 @@ a.pill{text-decoration:none}
     <span class="capsule glass clear"><span data-i="lock" data-s="16"></span>Sign-ups go only to The Public Bridge</span>
     <span class="capsule glass clear"><span data-i="person" data-s="16"></span>Guardian consent for minors</span>
     <span class="capsule glass clear"><span data-i="check" data-s="16"></span>Every number is sourced</span>
+    <span class="capsule glass clear"><span data-i="shield" data-s="16"></span>Tours fully supervised, with CDCR</span>
   </section>
-  <footer class="foot glass">Bridge Pulse for The Public Bridge Corporation, a California nonprofit. Mailing address: 1618 Alhambra Blvd, PO Box 160612, Sacramento, CA. Data from the California Department of Justice, CDCR, the U.S. Census Bureau via FRED and Kidsdata, PPIC, and New Ways to Work. Program details are from thepublicbridge.com.</footer>
+  <footer class="foot glass">Bridge Pulse for The Public Bridge Corporation, a 501(c)(3) nonprofit. Mailing address: 1618 Alhambra Blvd, PO Box 160612, Sacramento, CA. Data from the California Department of Justice, CDCR, the U.S. Census Bureau via FRED and Kidsdata, PPIC, and New Ways to Work. Program details are from thepublicbridge.com.</footer>
 </main>
 
 <nav class="tabbar-wrap" aria-label="Sections">
@@ -927,48 +958,62 @@ const P={
   hand:'<path d="M7 12.5V7a1.5 1.5 0 0 1 3 0v4.5M10 11V5.5a1.5 1.5 0 0 1 3 0V11M13 11V6.5a1.5 1.5 0 0 1 3 0V12M16 9.5a1.5 1.5 0 0 1 3 0V14a6.5 6.5 0 0 1-6.5 6.5h-1A6 6 0 0 1 7 17.6L4.6 14a1.5 1.5 0 0 1 2.4-1.8l0 .3"/>',
   pen:'<path d="M15.5 4.5 19.5 8.5 9 19H5v-4z"/><path d="M13 7l4 4"/>',
   chat:'<path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H11l-4.5 3.5v-3.5h0a2 2 0 0 1-2-2z"/>',
-  bars:'<path d="M6 20V12M12 20V5M18 20v-5"/>'
+  bars:'<path d="M6 20V12M12 20V5M18 20v-5"/>',
+  heart:'<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/>',
+  civic:'<path d="M3.5 20.5h17M5 17.5h14M6.5 17.5v-7M10 17.5v-7M14 17.5v-7M17.5 17.5v-7M4 10.5h16L12 4.5z"/>',
+  play:'<path d="M8 5.5v13l10.5-6.5z"/>',
+  spark:'<path d="M12 3.5c.7 4.3 2.2 5.8 6.5 6.5-4.3.7-5.8 2.2-6.5 6.5-.7-4.3-2.2-5.8-6.5-6.5 4.3-.7 5.8-2.2 6.5-6.5z"/>'
 };
 const ico=(k,s=20,w=1.9)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k]}</svg>`;
 
 /* ---------- content: programs (from thepublicbridge.com) ---------- */
 const PROGRAMS=[
  {id:'ca',name:'Causative Actions',kick:'12-week curriculum',kind:'Curriculum',c:'--orange',icon:'brain',
-  q:'Learn to pause before you act',
-  desc:'A 12-week curriculum built on real-life scenarios. Youth make a choice, then defend it, and learn to pause before acting.',
-  more:'E\'drick Brown\'s original program. It has been implemented within the California Department of Corrections and Rehabilitation.',
-  stats:[['12','weeks, start to finish'],['CDCR','implemented inside California prisons'],['Real life','scenarios, not lectures'],['Defend it','youth make a choice and explain why']]},
- {id:'sc',name:'Self Control',kick:'Core skills',kind:'Curriculum',c:'--indigo',icon:'shield',
-  q:'Own the split second',
-  desc:'E\'drick\'s original program for self-control, accountability and stronger decision-making, the skills that decide the moments that change a life.',
-  more:'Built so young people can face consequences in a classroom first, instead of living them.',
-  stats:[['Self-control','under pressure'],['Accountability','owning choices and their impact'],['Decisions','stronger, slower, better'],['Prevention','before the first charge']]},
- {id:'yd',name:'Youth Diversion Tour',kick:'Folsom State Prison',kind:'Experience',c:'--red',icon:'gate',
-  q:'See where the road ends',
-  desc:'A supervised Youth Diversion Tour at Folsom State Prison, followed by a Healing Circle where youth, families and community talk through what they saw.',
-  more:'Tours are part of The Public Bridge Youth Diversion Program. A parent or guardian consents for anyone under 18.',
-  stats:[['Folsom','State Prison, Represa'],['1 day','tour plus Healing Circle'],['Families','invited into the circle'],['Consent','guardian sign-off for minors']]},
- {id:'hc',name:'Healing Circle',kick:'Families and community',kind:'Community',c:'--green',icon:'circle',
-  desc:'Youth, families and community come together to talk about accountability and healing. The most recent circle followed the Folsom tour on July 18, 2026.'},
- {id:'pm',name:'Peer mentorship',kick:'Mission pillar',kind:'Community',c:'--cyan',icon:'people',
-  desc:'One of the three pillars of The Public Bridge mission, alongside community unification and preventative support programs.'}
+  q:'Think before you act',
+  desc:'A transformative 12-week curriculum that teaches youth to think before they act by confronting real-life scenarios with real consequences.',
+  more:'Participants must choose, explain and defend their decisions, aligning their thinking with logic, accountability and pro-social outcomes. Successfully implemented within the California Department of Corrections and Rehabilitation.',
+  stats:[['12','weeks'],['200+','participants across multiple sessions'],['CDCR','successfully implemented inside'],['Choose. Explain. Defend.','every decision, every session']]},
+ {id:'sc',name:'Self Control',kick:'Structured curriculum',kind:'Curriculum',c:'--indigo',icon:'shield',
+  q:'Learn from consequences before living them',
+  desc:'E\'drick Brown\'s original Self Control Program. Lessons built from real life, designed to protect real futures.',
+  more:'Youth develop self-control, accountability, stronger decision-making and a deeper understanding of how one choice can change a life, so they can protect their freedom, recognize their potential and choose a future worth fighting for.',
+  stats:[['Self-control','under pressure'],['Accountability','owning every choice'],['Decisions','how one choice changes a life'],['Freedom','protected, not lost']]},
+ {id:'yd',name:'Youth Diversion Program',kick:'Folsom State Prison',kind:'Exposure',c:'--red',icon:'gate',
+  q:'The cost they don\'t show you',
+  desc:'In partnership with the California Department of Corrections and Rehabilitation, a fully supervised experience at Folsom State Prison that shows youth the real consequences of choices.',
+  more:'It strengthens accountability and judgment, and gives parents a rare, proactive chance to protect their child from decisions that could permanently alter their future. Youth wear a burgundy jumpsuit to distinguish themselves from the incarcerated population. A Healing Circle follows.',
+  stats:[['CDCR','partnership'],['Fully','supervised'],['Parents','a proactive chance to protect their child'],['Healing Circle','for youth, families and community']]},
+ {id:'ch',name:'City Hall Youth Leadership Tour',kick:'Civic leadership',kind:'Exposure',c:'--blue',icon:'civic',
+  desc:'Youth step inside Sacramento City Hall to explore civic leadership, public service and how decisions are made in their community. The last tour was Tuesday, September 22, 2026 at 9:00 AM.',
+  more:'Sign up to hear about the next date.'},
+ {id:'hc',name:'Healing Circle',kick:'Youth and families',kind:'Community',c:'--green',icon:'circle',
+  desc:'Following the Folsom State Prison Youth Diversion Tour, the Healing Circle brings youth, families and community together for a conversation on accountability, healing and the power of transformation.'},
+ {id:'pm',name:'Mentorship',kick:'Trusted mentors',kind:'Community',c:'--cyan',icon:'people',
+  desc:'Trusted mentors who show up, lead by example, challenge young people to rise, and help them recognize the greatness within themselves, turning potential into purpose and purpose into a future.'}
 ];
 const DIALS=PROGRAMS.slice(0,3);
 const PG=id=>PROGRAMS.find(p=>p.id===id);
 
 const STORY=[
- ['Age 18','Into the system','E\'drick enters California\'s prison system, about the age of many of the youth he serves now.'],
- ['20+ years','Learning the cost','More than two decades inside. Decisions made in seconds, consequences measured in years.'],
- ['The work','Writing the curriculum','He builds Causative Actions and Self Control so young people can learn from consequences before living them.'],
- ['Today','Bridging Sacramento','The Public Bridge brings curriculum, diversion tours, Healing Circles and peer mentorship to youth and families.']
+ ['Age 18','Into the system','E\'drick Brown entered California\'s prison system and spent more than two decades behind the walls.'],
+ ['The cost','The cost they don\'t show you','Birthdays missed, families separated, opportunities lost, years that can never be returned. Some consequences can be survived, but never undone.'],
+ ['Coming home','Turning pain into prevention','He came home determined to change the trajectory of others, turning lived experience into mentorship, education, accountability and opportunity.'],
+ ['Today','Building a stronger future','Youth, families, educators, justice-system partners, community leaders and mentors, working together on pathways to better decisions.']
 ];
-const UPDATES=[
- {t:'Healing Circle',when:'Jul 18, 2026',c:'--green',i:'circle',m:'After the Folsom State Prison Youth Diversion Tour, youth, families and community came together to talk about accountability and healing.'},
- {t:'In conversation',when:'Featured',c:'--blue',i:'chat',m:'E\'drick Brown sits down with Anthony Martinez. Watch it on thepublicbridge.com.'},
- {t:'Causative Actions inside CDCR',when:'Program',c:'--orange',i:'brain',m:'The 12-week curriculum has been implemented within the California Department of Corrections and Rehabilitation.'},
- {t:'Our mission',when:'About',c:'--indigo',i:'bridge',m:'Bridging social and economic gaps of disparity through community unification, peer mentorship and preventative support programs.'}
+const PILLARS=[
+ ['Exposure with purpose','From correctional institutions to college campuses, every encounter shows the consequences of destructive decisions and the opportunities built by education, discipline and leadership.','--red','gate'],
+ ['Youth and family engagement','Youth, parents, mentors, educators and credible voices together, building accountability, communication and a lasting support system.','--green','people'],
+ ['Youth development','Confidence, discipline, self-control, accountability, resilience, integrity and leadership: confident thinkers and resilient leaders.','--indigo','spark'],
+ ['Mentorship','Trusted mentors who show up, lead by example and challenge young people to rise.','--cyan','hand'],
+ ['Structured curriculum','Causative Actions and Self Control: learn from consequences before living through them.','--orange','brain']
+];const UPDATES=[
+ {t:'City Hall Youth Leadership Tour',when:'Sep 22, 2026',c:'--blue',i:'civic',m:'Youth stepped inside Sacramento City Hall to see civic leadership and public service firsthand. Sign up to hear about the next one.'},
+ {t:'Healing Circle',when:'Jul 18, 2026',c:'--green',i:'circle',m:'After the Folsom State Prison Youth Diversion Tour, youth, families and community gathered on accountability, healing and transformation. E\'drick Brown and Anthony Martinez spoke openly about the choices they made.'},
+ {t:'KCRA 3 News feature',when:'TV',c:'--red',i:'play',m:'The Public Bridge on KCRA 3. Watch it on thepublicbridge.com.'},
+ {t:'ABC10 “Your California Life”',when:'TV',c:'--indigo',i:'play',m:'E\'drick shares the journey that inspired The Public Bridge: lived experience, education and opportunity.'},
+ {t:'Everyday Amazing with Sky Alton',when:'Comcast 17',c:'--orange',i:'play',m:'Incarceration, transformation, accountability, and reaching young people before life-changing decisions are made.'},
+ {t:'Voices of the Youth',when:'Folsom tour',c:'--cyan',i:'chat',m:'Straight from the youth\'s mouth: participants describe the moment the Youth Diversion Tour hit home.'}
 ];
-
 /* ---------- data (published; every figure is in SOURCES) ---------- */
 const METRICS={
  recid:{label:'3-year reconviction rate',labels:['FY 2018-19','FY 2019-20','FY 2020-21'],data:[41.9,39.1,39.5],unit:'%',min:30,max:50,color:'--red',
@@ -1012,7 +1057,7 @@ const INFO={
 /* ---------- places on the map ---------- */
 const PLACES=[
  {id:'pb',name:'The Public Bridge',sub:'Mailing address · 1618 Alhambra Blvd, PO Box 160612',ll:[38.5662,-121.4649],c:'--orange',type:'program'},
- {id:'fsp',name:'Folsom State Prison',sub:'Youth Diversion Tour site · 300 Prison Rd, Represa',ll:[38.6950,-121.1625],c:'--red',type:'program',prog:'yd'},
+ {id:'fsp',name:'Folsom State Prison',sub:'Youth Diversion Program site · 300 Prison Rd, Represa',ll:[38.6950,-121.1625],c:'--red',type:'program',prog:'yd'},
  {id:'sac',name:'California State Prison, Sacramento',sub:'Neighboring state prison (New Folsom)',ll:[38.6939,-121.1531],c:'--indigo',type:'justice'}
 ];
 
@@ -1063,7 +1108,7 @@ function sideHTML(pre){
    <h3 class="side-head">Contact</h3>
    <div class="side-contact"><a href="tel:+19166029667"><span>${ico('phone',18)}</span>(916) 602-9667</a><a href="mailto:Info@thepublicbridge.com"><span>${ico('mail',18)}</span>Info@thepublicbridge.com</a></div>
   </nav>
-  <p class="side-foot">The Public Bridge Corporation, a California nonprofit in Sacramento.</p>`;
+  <p class="side-foot">The Public Bridge Corporation, a 501(c)(3) nonprofit in Sacramento.</p>`;
 }
 function buildSide(box,pre,onPick){
   box.innerHTML=sideHTML(pre);
@@ -1223,6 +1268,7 @@ function renderFacts(){
 
 /* ---------- founder + updates ---------- */
 function renderStory(){
+  $('#pillars').innerHTML=PILLARS.map(x=>`<div class="kv-row pil"><b><span class="s-ico" style="--c:var(${x[2]})">${ico(x[3],16,2)}</span>${x[0]}</b><span class="v"></span><p>${x[1]}</p></div>`).join('');
   $('#story').innerHTML=STORY.map(s=>`<div class="st"><em>${s[0]}</em><div><b>${s[1]}</b><p>${s[2]}</p></div></div>`).join('');
   $('#notes').innerHTML=UPDATES.map(u=>`<div class="note"><span class="n-ico" style="--c:var(${u.c})">${ico(u.i,20,2)}</span><div class="n-main"><div class="n-top"><b>${u.t}</b><span class="n-time">${u.when}</span></div><p class="n-msg">${u.m}</p></div></div>`).join('');
 }
@@ -1381,12 +1427,12 @@ function buildForm(){
     const okName=!!name,okReach=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||phone.replace(/\D/g,'').length>=10,okConsent=$('#consent').checked;
     $('#flName').classList.toggle('bad',!okName);$('#flEmail').classList.toggle('bad',!okReach);$('#consentBox').classList.toggle('bad',!okConsent);
     if(!okName||!okReach||!okConsent){const first=!okName?f.elements.name:!okReach?f.elements.email:$('#consent');first.focus();island('A few details missing',!okName?'Add a name':!okReach?'Add an email or phone':'Check the consent box','--orange','info');return}
-    const data={role:state.role,name,age:f.elements.age.value,organization:f.elements.org.value.trim(),email,phone,city:f.elements.city.value.trim(),contactPreference:f.elements.pref.value,programs:[...state.picks].map(id=>PG(id).name),message:f.elements.msg.value.trim(),submittedAt:new Date().toISOString(),source:'Bridge Pulse'};
+    const data={role:state.role,name,age:f.elements.age.value,organization:f.elements.org.value.trim(),email,phone,city:f.elements.city.value.trim(),contactPreference:f.elements.pref.value,heardFrom:f.elements.heard.value,programs:[...state.picks].map(id=>PG(id).name),message:f.elements.msg.value.trim(),submittedAt:new Date().toISOString(),source:'Bridge Pulse'};
     const btn=$('#submitBtn');btn.disabled=true;
     let sent=false;
     if(FORM_ENDPOINT){try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});sent=r.ok}catch(err){}}
     if(!sent){
-      const body=[`I am a: ${data.role}`,`Name: ${data.name}`,data.age&&`Age: ${data.age}`,data.organization&&`Organization: ${data.organization}`,data.email&&`Email: ${data.email}`,data.phone&&`Phone: ${data.phone}`,data.city&&`City: ${data.city}`,`Best way to reach me: ${data.contactPreference}`,`Programs: ${data.programs.join(', ')||'Not sure yet, please help me choose'}`,data.message&&`\n${data.message}`].filter(Boolean).join('\n');
+      const body=[`I am a: ${data.role}`,`Name: ${data.name}`,data.age&&`Age: ${data.age}`,data.organization&&`Organization: ${data.organization}`,data.email&&`Email: ${data.email}`,data.phone&&`Phone: ${data.phone}`,data.city&&`City: ${data.city}`,`Best way to reach me: ${data.contactPreference}`,data.heardFrom&&`Heard about you from: ${data.heardFrom}`,`Programs: ${data.programs.join(', ')||'Not sure yet, please help me choose'}`,data.message&&`\n${data.message}`].filter(Boolean).join('\n');
       location.href=`mailto:${TEAM_EMAIL}?subject=${encodeURIComponent('Sign-up: '+data.name+' ('+data.role+')')}&body=${encodeURIComponent(body)}`;
     }
     const first=name.split(' ')[0];
@@ -1402,7 +1448,8 @@ function syncRole(){
   setPressed('#roleSeg',state.role,'aria-checked');
   const r=state.role;
   $('#flOrg').hidden=r!=='School / agency';
-  $('#flAge').hidden=r==='School / agency'||r==='Volunteer';
+  $('#flAge').hidden=r!=='Youth'&&r!=='Parent / guardian';
+  $('#flOrg').hidden=r!=='School / agency'&&r!=='Partner / donor';
   $('#ageLbl').textContent=r==='Youth'?'Your age':'Youth\'s age';
 }
 
@@ -1478,6 +1525,7 @@ function wire(){
   document.addEventListener('click',e=>{
     const i=e.target.closest('[data-info]');if(i){e.preventDefault();openInfo(i.dataset.info);return}
     const p=e.target.closest('[data-pick]');if(p){togglePick(p.dataset.pick)}
+    const g=e.target.closest('.hdr [data-go]');if(g)go(g.dataset.go);
   });
   $('#hamburger').addEventListener('click',openDrawer);
   $('#picksBtn').addEventListener('click',openPicks);
